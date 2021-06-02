@@ -6,6 +6,12 @@
   </router-link>
   <figcaption class="underLien">Coupe Glacer</figcaption>
   </figure>
+  <figure>
+    <router-link  to="/CompositionGlacer">
+    <img src="@/images/coupe-glacee-aux-myrtilles.jpeg" alt="vers le menu des coupes glacer" />
+</router-link>
+<figcaption class="underLien">Fait vous même votre composition ?</figcaption>
+</figure>
   <panier/>
   </section>
 </template>

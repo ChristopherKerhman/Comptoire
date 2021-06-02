@@ -4,6 +4,9 @@
     <li v-for="detail in commande" v-bind:key="detail">
       {{detail}}
     </li>
+    <li v-for="coulis in coupeCreateurPerso" v-bind:key="coulis">
+      {{coulis}}
+    </li>
   </ul>
 </template>
 <script>
@@ -11,7 +14,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'commande',
   computed: {
-    ...mapState(['panierClient', 'commande'])
+    ...mapState(['panierClient', 'commande', 'coupeCreateurPerso'])
   }
 }
 </script>

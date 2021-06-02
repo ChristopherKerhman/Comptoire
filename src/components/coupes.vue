@@ -2,10 +2,9 @@
 <h3 class="titre">Nos Coupes glacées</h3>
 <div class="conteneurMenu">
     <figure v-for="boule in coupes" v-bind:key="boule">
-      <img :alt="boule.nom" v-bind:src="boule.cornet" />
+      <img v-on:click="Ajouter(boule.prix, boule.nom)" :alt="boule.nom" v-bind:src="boule.cornet" />
       <p>Composition : {{boule.composition}}</p>
       <figcaption>{{boule.nom}}: {{boule.prix}} €
-        <button class="bouttonAdd" v-on:click="Ajouter(boule.prix, boule.nom)">Ajouter</button>
       </figcaption>
       </figure>
 </div>

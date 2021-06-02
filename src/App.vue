@@ -1,5 +1,5 @@
 <template>
-  Le comptoire des glaces
+<h3 class="titre_h1">Le COMPTOIR des GLACES</h3>
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -48,8 +48,14 @@
 }
 /*==Couleur majoritaire du site==*/
 /*==Globale==*/
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
 body {
   background-color: #FFD6BA;
+  color: #555B6E;
+}
+.titre_h1 {
+  font-family: 'Comfortaa', cursive;
   color: #555B6E;
 }
 .titre {
@@ -86,6 +92,16 @@ body {
   -webkit-box-shadow: inset 0px 0px 7px 6px rgba(245, 176, 118, 0.64);
   -moz-box-shadow: inset 0px 0px 7px 6px rgba(245, 176, 118, 0.64);
   box-shadow: inset 0px 0px 7px 6px rgba(245, 176, 118, 0.64);
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+li {
+  list-style: none;
+  text-align: left;
 }
 
 </style>
