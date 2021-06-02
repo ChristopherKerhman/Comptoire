@@ -9,6 +9,7 @@
     </figure>
     <figure v-for="boule in coupes" v-bind:key="boule">
       <img :alt="boule.nom" v-bind:src="boule.cornet" />
+      <p>Composition : {{boule.composition}}</p>
       <figcaption>{{boule.nom}}: {{boule.prix}} €
         <button class="bouttonAdd" v-on:click="Ajouter(boule.prix, boule.nom)">Ajouter</button>
       </figcaption>
@@ -29,10 +30,10 @@ export default {
       panier: 0,
       liste: [],
       coupes: [
-        { id: 0, cornet: './images/glace-mexicaine.jpg', prix: 8.9, nom: 'Coupe Mexicaine' },
-        { id: 1, cornet: './images/amarena.jpg', prix: 7.9, nom: 'Amarena' },
-        { id: 2, cornet: './images/bounty.jpg', prix: 6.9, nom: 'bounty' },
-        { id: 3, cornet: './images/coupe-exotique.jpg', prix: 5.9, nom: 'Coupe exotique' }
+        { id: 0, cornet: './images/glace-mexicaine.jpg', prix: 7.9, nom: 'Coupe Mexicaine', composition: 'Chantilly, boule vanille bourbon, glace café, coulis de café chaud' },
+        { id: 1, cornet: './images/amarena.jpg', prix: 7.9, nom: 'Amarena', composition: 'Chantilly, boule vanille bourbon, glace Cerise, cerise confite' },
+        { id: 2, cornet: './images/bounty.jpg', prix: 7.9, nom: 'bounty', composition: 'Chantilly, boule vanille bourbon, glace Coco, boule chocolat' },
+        { id: 3, cornet: './images/coupe-exotique.jpg', prix: 8.9, nom: 'Coupe exotique', composition: 'Chantilly, boule mangue, boule banane, boule passion' }
       ]
     }
   },
