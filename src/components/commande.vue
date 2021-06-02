@@ -8,6 +8,8 @@
       {{coulis}}
     </li>
   </ul>
+  <button class="bouttonAdd" v-on:click="Reset">Remise à 0</button>
+
 </template>
 <script>
 import { mapState } from 'vuex'
@@ -15,6 +17,11 @@ export default {
   name: 'commande',
   computed: {
     ...mapState(['panierClient', 'commande', 'coupeCreateurPerso'])
+  },
+  methods: {
+    Reset () {
+      location.reload()
+    }
   }
 }
 </script>
