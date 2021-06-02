@@ -2,7 +2,7 @@
   <p>
     Votre coupe créateur :<br />
     <ul>
-      <li v-for="picasso in coupePerso" v-bind:key="picasso">{{picasso}}</li>
+      <li v-for="picasso in coupePerso" v-bind:key="picasso">{{picasso}}<button class="bouttonAdd" v-on:click="del(picasso)">Retirer</button></li>
       <li>{{prixCoupe.toFixed(2)}} €</li>
     </ul>
     <button v-if="coupePerso.length >= 1" class="bouttonAdd" v-on:click="sauverLaCoupe">Enregistrer votre coupe</button>
@@ -15,7 +15,6 @@
     <li><h4 class="titre_h1">Les suppléments</h4></li>
     <li v-for="topping in supplement" v-bind:key="topping">{{topping.sup}}<button v-on:click="coupeCreation(topping.sup)" class="bouttonAdd">Ajouter</button></li>
   </ul>
-
 </template>
 <script>
 import { mapState } from 'vuex'
@@ -53,30 +52,35 @@ export default {
       ]
     }
   },
+  updated () {
+    if (this.coupePerso.length < 1) {
+      this.pricCoupe = 0
+    }
+    if (this.coupePerso.length === 1) {
+      this.prixCoupe = 2.50
+    }
+    if (this.coupePerso.length === 2) {
+      this.prixCoupe = 3.50
+    }
+    if (this.coupePerso.length === 3) {
+      this.prixCoupe = 4.50
+    }
+    if (this.coupePerso.length === 4) {
+      this.prixCoupe = this.coupePerso.length * 1.8
+    }
+    if (this.coupePerso.length >= 4) {
+      this.prixCoupe = this.coupePerso.length * 1.6
+    }
+    if (this.coupePerso.length >= 6) {
+      this.prixCoupe = this.coupePerso.length * 1.4
+    }
+  },
   computed: {
     ...mapState(['panierClient', 'commande', 'coupeCreateurPerso'])
   },
   methods: {
     coupeCreation (name) {
       this.coupePerso.push(name)
-      if (this.coupePerso.length === 1) {
-        this.prixCoupe = 2.50
-      }
-      if (this.coupePerso.length === 2) {
-        this.prixCoupe = 3.50
-      }
-      if (this.coupePerso.length === 3) {
-        this.prixCoupe = 4.50
-      }
-      if (this.coupePerso.length === 4) {
-        this.prixCoupe = this.coupePerso.length * 1.8
-      }
-      if (this.coupePerso.length >= 4) {
-        this.prixCoupe = this.coupePerso.length * 1.6
-      }
-      if (this.coupePerso.length >= 6) {
-        this.prixCoupe = this.coupePerso.length * 1.4
-      }
     },
     sauverLaCoupe () {
       this.nCoupe++
@@ -85,10 +89,14 @@ export default {
       const Recap = this.coupeCreateurPerso
       this.prixCommande = this.panierClient + this.prixCoupe
       this.$store.dispatch('MAJPanier2', {
-        panierClient: this.prixCoupe,
+        panierClient: this.prixCommande,
         coupeCreateurPerso: Recap
       })
       this.coupePerso = []
+      this.prixCoupe = 0
+    },
+    del (number) {
+      this.coupePerso.splice(number, 1)
     }
   }
 }

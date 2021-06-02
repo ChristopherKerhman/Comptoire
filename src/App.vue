@@ -2,6 +2,7 @@
 <h3 class="titre_h1">Le COMPTOIR des GLACES</h3>
   <div id="nav">
     <router-link to="/">Home</router-link> |
+    <router-link to="/RecapitulatifCommande">Recapitulatif Commande</router-link> |
     <router-link to="/about">About</router-link>
   </div>
   <router-view/>
