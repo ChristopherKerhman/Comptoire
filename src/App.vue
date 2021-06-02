@@ -4,8 +4,7 @@
     <router-link to="/about">About</router-link>
   </div>
   <router-view/>
-</template>
-
+  </template>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -60,6 +59,8 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5em;
+  align-items: center;
+  justify-content: center;
 }
 .underLien {
   color: #6C9D9B;
